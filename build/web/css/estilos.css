@@ -1,0 +1,154 @@
+body { 
+  background-color: #eff0f2;
+}
+#encabezado{
+    background-color: white;
+}
+
+#logo{
+	width: 238px;
+	height: 165px;
+
+
+}
+
+#slider1{
+	background-image: url("../img/google.jpg");
+	background-position: center;
+
+}
+
+#slider2, #slider3{
+	background-image: url("../img/amazon.jpg");
+	background-position: center;
+}
+
+.carousel-inner h4{
+	box-shadow: 2px 2px 2px 2px;
+	color: white;
+	border-radius: 20px 2px 20px 2px;
+	background-color: rgba(0,0,0,0.7);
+	width: 325px;
+}
+
+.carousel-inner table{
+	 overflow: hidden;
+    margin-top: -50px;
+    padding-top: -100px;
+    border-radius: 2px 20px 2px 20px;
+    background-color: #4ADFCC;
+    margin-top: 25px;
+    color:white;
+    width: 325px;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    
+}
+
+h4{
+	text-align: center;
+}
+
+blockquote{
+    border-left:none
+}
+
+.quote-badge{
+    background-color: rgba(0, 0, 0, 0.2);   
+}
+
+.hh4{
+	box-shadow: 2px 2px 2px 2px;
+	color: white;
+	border-radius: 20px 2px 20px 2px;
+	background-color: rgba(0,0,0,0.7);
+	width: 325px;
+}
+
+.quote-box{
+    
+    overflow: hidden;
+    margin-top: -50px;
+    padding-top: -100px;
+    border-radius: 2px 20px 2px 20px;
+    background-color: #4ADFCC;
+    margin-top: 25px;
+    color:white;
+    width: 325px;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    
+}
+
+.quotation-mark{
+    
+    margin-top: -10px;
+    font-weight: bold;
+    font-size:100px;
+    color:white;
+    font-family: "Times New Roman", Georgia, Serif;
+    
+}
+
+.quote-text{
+    
+    font-size: 19px;
+    margin-top: -65px;
+}
+
+#imagenempleo{
+	width: 100%;
+	height: 250px;
+
+}
+
+#ingresar {
+	width: 620px;
+	position: relative;
+	left: 64%;
+	bottom: 240px
+
+}
+
+
+
+
+
+.lix{
+	align-content: center;
+}
+
+.menu{
+	position: relative;
+	bottom: 65px;
+
+}
+
+#buscaroferente{
+	width: 300px;
+	height: 33px;
+	border-radius: 20px 0px 0px 20px;
+}
+
+#btn-buscar{
+	width: 80px;
+	border-radius: 0px 20px 20px 0px;
+
+}
+
+#myCarousel div div img{
+	width: 800px;
+	height: 400px;
+
+}
+ 
+.buscar{
+	position: relative;
+	top: 20px;
+
+}
+
+.formlogin{
+	position: relative;
+	top: 200px;
+	left: 200px;
+
+}
