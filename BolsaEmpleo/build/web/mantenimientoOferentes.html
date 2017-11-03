@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mantenimiento Oferentes</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/estilos.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/darkbox.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/darkbox.js"></script>	
+        <script src="js/modelo.js"></script>
+    </head>
+    <body>
+
+ <!--Header-->
+        <div class="row" id="encabezado">	
+            <div class="col-md-12">
+                <div class="col-md-3"><img id="logo" src="img/logo.jpg" alt=""></div>
+                <div class="col-md-9"><img id="imagenempleo" src="img/1.jpg" alt=""></div> 
+            </div>
+            <div id="ingresar">
+                <a href="login.html"><button type="button" class="btn btn-success " >Ingresar</button></a>
+                <a href="registrarEmpresa.html"><button type="button" class="btn btn-primary " >Registrar Empresa</button></a>
+                <a href="registrarOferente.html"><button type="button" class="btn btn-primary" >Registrar Oferente</button></a>
+            </div>
+
+
+
+        </div >
+
+        <!--Menú-->
+
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <nav  role="navigation" class="menu navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="lix"><a href="index.html"><p class="Titular">Página Principal</p></a></li>
+                        <li class="lix"><a href="mantenimientoPuestos.html"><p class="Titular">Mant. Puestos</p></a></li>
+                        <li class="lix"><a href="mantenimientoEmpresas.html"><p class="Titular">Mant. Empresas</p></a></li>
+                        <li class="lix active"><a href="mantenimientoOferentes.html"><p class="Titular">Mant. Oferentes</p></a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="col-sm-2"></div>
+       
+          <div class="contenedor">
+            <div class="box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>Mantenimiento Oferentes</strong>
+                        </h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                <table class="table table-hover table-condensed" >
+                    <thead>
+                    <th>ID</th><th>Nombre<th><th>apellido</th><th>Correo</th>
+                    <th>Nacionalidad</th><th>Telefono</th><th>Residencia</th><th>Estado</th><th><span class="glyphicon glyphicon-cog"></span></th>
+                    </thead>
+                    <tbody id="listado"></tbody>
+                </table>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+          </div>
+        
+
+    </body>
+</html>

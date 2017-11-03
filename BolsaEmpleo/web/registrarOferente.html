@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registrar Oferente</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/estilos.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/darkbox.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/darkbox.js"></script>	
+        <script src="js/modelo.js"></script>
+    </head>
+    <body>
+
+ <!--Header-->
+        <div class="row" id="encabezado">	
+            <div class="col-md-12">
+                <div class="col-md-3"><img id="logo" src="img/logo.jpg" alt=""></div>
+                <div class="col-md-9"><img id="imagenempleo" src="img/1.jpg" alt=""></div> 
+            </div>
+            <div id="ingresar">
+                <a href="login.html"><button type="button" class="btn btn-success " >Ingresar</button></a>
+                <a href="registrarEmpresa.html"><button type="button" class="btn btn-primary " >Registrar Empresa</button></a>
+                <a href="registrarOferente.html"><button type="button" class="btn btn-primary" >Registrar Oferente</button></a>
+            </div>
+
+
+
+        </div >
+
+        <!--Menú-->
+
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <nav  role="navigation" class="menu navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="lix active"><a href="index.html"><p class="Titular">Página Principal</p></a></li>
+                        <li class="lix"><a href="mantenimientoPuestos.html"><p class="Titular">Mant. Puestos</p></a></li>
+                        <li class="lix"><a href="mantenimientoEmpresas.html"><p class="Titular">Mant. Empresas</p></a></li>
+                        <li class="lix"><a href="mantenimientoOferentes.html"><p class="Titular">Mant. Oferentes</p></a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="col-sm-2"></div>
+       
+          <div class="contenedor">
+            <div class="box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>Registro Oferente</strong>
+                        </h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <form class="form-horizontal">
+
+                    <div class="form-group">
+                        <div class="col-md-2"></div>
+                        <label class="control-label col-md-3">IDENTIFICACION: </label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="inputId" placeholder="Identificacion">
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <div class="col-md-2"></div>
+                        <label class="control-label col-md-3">NOMBRE:</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2"></div>
+                        <label class="control-label col-md-3">PRIMER APELLIDO:</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="inputApellido" placeholder="Primer Apellido">
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2"></div>
+                        <label class="control-label col-md-3">NACIONALIDAD:</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="inputNacionalidad" placeholder="Nacionalidad">
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2"></div>
+                        <label class="control-label col-md-3" >TELÉFONO:</label>
+                        <div class="col-md-5">
+                            <input type="tel" class="form-control" id="inputTelefono" placeholder="Telefono">
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2"></div>
+                        <label class="control-label col-md-3" >CORREO:</label>
+                        <div class="col-md-5">
+                            <input type="email" class="form-control" id="inputCorreo" placeholder="Correo">
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-2"></div>
+                        <label class="control-label col-md-3">LUGAR DE RESIDENCIA:</label>
+                        <div class="col-md-5">
+                            <textarea rows="3" class="form-control" id="inputDireccion" placeholder="Dirección"></textarea>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2"></div>
+                        <label class="control-label col-md-3">CURRICULUM:</label>
+                        <div class="col-md-5">
+                            Seleccione el Archivo
+                            <input type="button" class="btn btn-default" value="Seleccionar">
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-5 col-xs-9">                               
+                            <br><br>
+                            <input type="submit" class="btn btn-primary" value="Enviar">
+                            <input type="reset" class="btn btn-default" value="Limpiar">
+                        </div>
+                    </div>
+                    
+                    
+                </form>
+
+
+            </div>             
+        </div>
+        
+        
+
+    </body>
+</html>
