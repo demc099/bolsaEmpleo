@@ -33,6 +33,21 @@ public class Model {
         }
        return  puestosPublicos;
    }
+   
+       public static List<Empresa> empresaConsultar(){
+       List<Empresa> empresas;
+       empresas= new ArrayList();
+        try {
+            String sql="select * "+
+                    "from empresa  p where p.estado = 'Activa'";
+            ResultSet rs =  bolsaEmpleo.executeQuery(sql);
+            while (rs.next()) {
+                empresas.add(toEmpresa(rs));
+            }
+        } catch (SQLException ex) {
+        }
+       return  empresas;
+   }
      
      public static Empresa empresaConsultarById(int id){
        Empresa emp;
