@@ -39,7 +39,7 @@ public class Model {
        empresas= new ArrayList();
         try {
             String sql="select * "+
-                    "from empresa  p where p.estado = 'Activa'";
+                    "from empresa ";
             ResultSet rs =  bolsaEmpleo.executeQuery(sql);
             while (rs.next()) {
                 empresas.add(toEmpresa(rs));
@@ -117,7 +117,45 @@ public class Model {
         }
        return  car;
    }
+      
+      public static List<Oferente> consultarOferentes(){
+       List<Oferente> oferentes;
+       oferentes= new ArrayList();
+        try {
+            String sql="select * "+
+                    "from oferente ";
+            ResultSet rs =  bolsaEmpleo.executeQuery(sql);
+            while (rs.next()) {
+                oferentes.add(toOferente(rs));
+            }
+        } catch (SQLException ex) {
+        }
+       return  oferentes;
+   }
      
+      public static Oferente consultarOferenteById(int id){
+       Oferente ofe;
+       ofe = new Oferente();
+        try {
+            String sql="select * "+
+                    "from oferente  c where c.identificacion = '%s'";
+            
+            sql=String.format(sql,id);
+            ResultSet rs =  bolsaEmpleo.executeQuery(sql);
+            if (rs.next()) {
+            ofe = toOferente(rs);
+            }
+        } catch (Exception ex) {
+        }
+       return  ofe;
+   }
+      
+      public static void insertOferente(Oferente ofe){
+          String sql =" INSERT INTO oferente (identificacion,nombre,apellido,nacionalidad,residencia,correo,telefono,estado,password) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s')";
+          sql=String.format(sql,ofe.getIdentificacion(),ofe.getNombre(),ofe.getApellido(),ofe.getNacionalidad(),ofe.getResidencia(),ofe.getCorreo(),ofe.getTelefono(),ofe.getEstado(),ofe.getPassword());
+          bolsaEmpleo.executeUpdate(sql);
+      }
+      
      private static Puesto toPuesto(ResultSet rs){
         try {
             Puesto obj= new Puesto();
@@ -144,6 +182,24 @@ public class Model {
             obj.setEstado(rs.getString("estado"));
             obj.setLocalizacion(rs.getString("localizacion"));
             obj.setDescripcion(rs.getString("descripcion"));
+            obj.setTelefono(rs.getString("telefono"));
+            obj.setPassword(rs.getString("password"));
+            return obj;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+     
+     private static Oferente toOferente(ResultSet rs){
+        try {
+            Oferente obj= new Oferente();
+            obj.setIdentificacion(rs.getInt("identificacion"));
+            obj.setNombre(rs.getString("nombre"));
+            obj.setCorreo(rs.getString("correo"));
+            obj.setEstado(rs.getString("estado"));
+            obj.setApellido(rs.getString("apellido"));
+            obj.setNacionalidad(rs.getString("nacionalidad"));
+            obj.setResidencia(rs.getString("residencia"));
             obj.setTelefono(rs.getString("telefono"));
             obj.setPassword(rs.getString("password"));
             return obj;

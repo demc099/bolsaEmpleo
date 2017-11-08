@@ -1,29 +1,44 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 function ListarEmpresas(empresas){
-  
-    var listado = document.getElementById("listaEmpresas");
-    listado.innerHTML = "";
-    if(empresas != null){
-    for (i = 0; i < empresas.length; i++) {
-        var nombre = empresas[i].nombre.value ;
-        var div = document.createElement("div");
-        var br = document.createElement("br");
-        var h4 = document.createElement("h4");
-        div.className += " col-sm-4";
-        h4.className += "hh4";
-
-        var nnombre = document.createTextNode(nombre);
-        h4.appendChild(nnombre);
-        div.appendChild(h4);
-        listarPuesto(div, puestos[i]);
-        listado.appendChild(div);
-        div.appendChild(br);
-
-   }
+    
+     //limpia la información que tiene la tabla
+    $("#listaEmpresas").html(""); 
+    
+    //carga la tabla con el json devuelto
+    for (var i = 0; i < empresas.length; i++) {
+        dibujarFila(empresas[i]);
     }
+
 }
+
+function dibujarFila(rowData) {
+    //Cuando dibuja la tabla en cada boton se le agrega la funcionalidad de cargar o eliminar la informacion
+    //de una persona
+    
+    var row = $("<tr />");
+    $("#listaEmpresas").append(row); 
+    row.append($("<td>" + rowData.nombre + "</td>"));
+    row.append($("<td>" + rowData.localizacion + "</td>"));
+    row.append($("<td>" + rowData.telefono + "</td>"));
+    row.append($("<td>" + rowData.correo + "</td>"));
+    row.append($("<td>" + rowData.descripcion +"</td>"));
+    row.append($("<td> " + rowData.estado + "</td>"));
+    if(rowData.estado == "Activo"){
+         row.append($('<td><button  disabled="true" type="button" class="btn btn-default btn-xs" aria-label="Left Align" onclick="activarEmpresa('+"'"+rowData.empresaid+"'"+');">'+
+                        'Activar'+
+                    '</button>'+
+                    '<button type="button" class="btn btn-default btn-xs" aria-label="Left Align" onclick="eliminarEmpresa('+"'"+rowData.empresaid+"'"+');">'+
+                        '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>'+
+                    '</button></td>'));
+    }
+    else{
+    row.append($('<td><button type="button" class="btn btn-default btn-xs" aria-label="Left Align" onclick="activarEmpresa('+"'"+rowData.empresaid+"'"+');">'+
+                        'Activar'+
+                    '</button>'+
+                    '<button type="button" class="btn btn-default btn-xs" aria-label="Left Align" onclick="eliminarEmpresa('+"'"+rowData.empresaid+"'"+');">'+
+                        '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>'+
+                    '</button></td>'));
+        }
+}
+  
+    

@@ -8,6 +8,24 @@
         <servlet-name>PuestosService</servlet-name>
         <url-pattern>/PuestosService</url-pattern>
     </servlet-mapping>
+        
+    <servlet>
+        <servlet-name>EmpresaService</servlet-name>
+        <servlet-class>bolsaEmpleo.service.EmpresaService</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmpresaService</servlet-name>
+        <url-pattern>/EmpresaService</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>OferenteService</servlet-name>
+        <servlet-class>bolsaEmpleo.service.OferenteService</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OferenteService</servlet-name>
+        <url-pattern>/OferenteService</url-pattern>
+    </servlet-mapping>
     
     <session-config>
         <session-timeout>

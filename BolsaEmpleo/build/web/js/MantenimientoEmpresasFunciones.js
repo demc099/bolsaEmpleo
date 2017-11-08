@@ -1,7 +1,6 @@
 $(document).ready(function () {
-    Proxy.consultarPuestosPublicos();
+    Proxy.consultarEmpresas();
     
 });
-
 
 

@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import bolsaEmpleo.model.Jsonable;
 import bolsaEmpleo.model.*;
 
-public class EmpresaService extends HttpServlet {
+public class OferenteService extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,35 +32,62 @@ public class EmpresaService extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException {
-        
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+
         try {
             RuntimeTypeAdapterFactory<Jsonable> rta = RuntimeTypeAdapterFactory.of(Jsonable.class, "_class")
-                    .registerSubtype(Empresa.class, "Empresa");
+                    .registerSubtype(Oferente.class, "Oferente");
 
             Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("dd/MM/yyyy").create();
             String json;
             String accion = request.getParameter("accion");
-            List<Empresa> empresas;
-            Empresa empresa;
-            
-             switch(accion){
-                  case "consultarEmpresas":
-                      empresas=Model.empresaConsultar();
-                      json= gson.toJson(empresas);
-                      out.write(json);
-                      break;
-           
+            List<Oferente> oferentes;
+            Oferente oferente;
+
+            switch (accion) {
+                case "consultarOferentes":
+                    oferentes = Model.consultarOferentes();
+                    json = gson.toJson(oferentes);
+                    out.write(json);
+                    break;
+
+                case "consultarOferenteById":
+                    oferente = Model.consultarOferenteById(Integer.parseInt(request.getParameter("identificacion")));
+                    json = gson.toJson(oferente);
+                    out.write(json);
+                    break;
+
+                case "insertarOferente":
+                    Oferente oferenteaux = Model.consultarOferenteById(Integer.parseInt(request.getParameter("id")));
+                    if (oferenteaux.getIdentificacion() != Integer.parseInt(request.getParameter("id"))){
+                      oferente = new Oferente();
+                      oferente.setIdentificacion(Integer.parseInt(request.getParameter("id")));
+                      oferente.setNombre(request.getParameter("nombre"));
+                      oferente.setApellido(request.getParameter("apellido"));
+                      oferente.setNacionalidad(request.getParameter("nacionalidad"));
+                      oferente.setCorreo(request.getParameter("correo"));
+                      oferente.setTelefono(request.getParameter("telefono"));
+                      oferente.setResidencia(request.getParameter("direccion"));
+                      oferente.setEstado("Inactivo");
+                      oferente.setPassword(request.getParameter("password"));
+                      Model.insertOferente(oferente);
+                      out.print("Exito");
+                    }
+                    else
+                        out.print("Existe");
+                   
+                    break;
+
             }
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -100,7 +127,3 @@ public class EmpresaService extends HttpServlet {
     }// </editor-fold>
 
 }
-
-
-
-              

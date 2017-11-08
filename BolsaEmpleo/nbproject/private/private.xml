@@ -3,16 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/juanp/Desktop/Proyecto%20Progra/BolsaEmpleo/src/java/bolsaEmpleo/model/Model.java</file>
-            <file>file:/C:/Users/juanp/Desktop/Proyecto%20Progra/BolsaEmpleo/src/java/bolsaEmpleo/model/Caracteristica.java</file>
-            <file>file:/C:/Users/juanp/Desktop/Proyecto%20Progra/BolsaEmpleo/src/java/bolsaEmpleo/model/CaracteristicasPuestoCompleto.java</file>
-            <file>file:/C:/Users/juanp/Desktop/Proyecto%20Progra/BolsaEmpleo/src/java/bolsaEmpleo/model/CaracteristicaOpcion.java</file>
-            <file>file:/C:/Users/juanp/Desktop/Proyecto%20Progra/BolsaEmpleo/web/index.html</file>
-            <file>file:/C:/Users/juanp/Desktop/Proyecto%20Progra/BolsaEmpleo/web/js/Proxy.js</file>
-            <file>file:/C:/Users/juanp/Desktop/Proyecto%20Progra/BolsaEmpleo/src/java/bolsaEmpleo/model/Puesto.java</file>
-            <file>file:/C:/Users/juanp/Desktop/Proyecto%20Progra/BolsaEmpleo/web/js/IndexFunciones.js</file>
-            <file>file:/C:/Users/juanp/Desktop/Proyecto%20Progra/BolsaEmpleo/src/java/bolsaEmpleo/service/PuestosService.java</file>
-            <file>file:/C:/Users/juanp/Desktop/Proyecto%20Progra/BolsaEmpleo/web/js/PuestosController.js</file>
+            <file>file:/C:/Users/juanp/Documents/GitHub/bolsaEmpleo/BolsaEmpleo/src/java/bolsaEmpleo/service/OferenteService.java</file>
+            <file>file:/C:/Users/juanp/Documents/GitHub/bolsaEmpleo/BolsaEmpleo/src/java/bolsaEmpleo/model/Model.java</file>
+            <file>file:/C:/Users/juanp/Documents/GitHub/bolsaEmpleo/BolsaEmpleo/web/registrarOferente.html</file>
+            <file>file:/C:/Users/juanp/Documents/GitHub/bolsaEmpleo/BolsaEmpleo/web/js/Proxy.js</file>
+            <file>file:/C:/Users/juanp/Documents/GitHub/bolsaEmpleo/BolsaEmpleo/web/js/OferenteController.js</file>
+            <file>file:/C:/Users/juanp/Documents/GitHub/bolsaEmpleo/BolsaEmpleo/web/js/MantenimientoOferentesFunciones.js</file>
+            <file>file:/C:/Users/juanp/Documents/GitHub/bolsaEmpleo/BolsaEmpleo/web/js/RegistrarOferenteFunciones.js</file>
         </group>
     </open-files>
 </project-private>
