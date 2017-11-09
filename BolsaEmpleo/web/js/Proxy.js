@@ -67,6 +67,7 @@ Proxy.insertarOferente = function () {
                 accion: "insertarOferente",
                 id: $("#inputId").val(),
                 nombre: $("#inputNombre").val(),
+                apellido: $("#inputApellido").val(),
                 nacionalidad: $("#inputNacionalidad").val(),
                 telefono: $("#inputTelefono").val(),
                 correo: $("#inputCorreo").val(),
