@@ -32,11 +32,11 @@ public class EmpresaService extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException {
-        
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+
         try {
             RuntimeTypeAdapterFactory<Jsonable> rta = RuntimeTypeAdapterFactory.of(Jsonable.class, "_class")
                     .registerSubtype(Empresa.class, "Empresa");
@@ -46,14 +46,49 @@ public class EmpresaService extends HttpServlet {
             String accion = request.getParameter("accion");
             List<Empresa> empresas;
             Empresa empresa;
-            
-             switch(accion){
-                  case "consultarEmpresas":
-                      empresas=Model.empresaConsultar();
-                      json= gson.toJson(empresas);
-                      out.write(json);
-                      break;
-           
+
+            switch (accion) {
+                case "consultarEmpresas":
+                    empresas = Model.empresaConsultar();
+                    json = gson.toJson(empresas);
+                    out.write(json);
+                    break;
+
+                case "consultarEmpresaById":
+                    empresa = Model.empresaConsultarById(Integer.parseInt(request.getParameter("empresaid")));
+                    json = gson.toJson(empresa);
+                    out.write(json);
+                    break;
+
+                case "insertarEmpresa":
+                    Empresa empresaaux = Model.consultarEmpresaByNombre(request.getParameter("nombre"));
+                    if (empresaaux.getNombre() == null) {
+                        empresa = new Empresa();
+                        empresa.setNombre(request.getParameter("nombre"));
+                        empresa.setDescripcion(request.getParameter("descripcion"));
+                        empresa.setLocalizacion(request.getParameter("localizacion"));
+                        empresa.setCorreo(request.getParameter("correo"));
+                        empresa.setTelefono(request.getParameter("telefono"));
+                        empresa.setEstado("Inactivo");
+                        empresa.setPassword(request.getParameter("password"));
+                        Model.insertEmpresa(empresa);
+                        out.print("Exito");
+                    } else {
+                        out.print("Existe");
+                    }
+
+                    break;
+
+                case "eliminarEmpresa":
+                    Model.eliminarEmpresa(Integer.parseInt(request.getParameter("id")));
+                    out.print("Exito");
+                    break;
+
+                case "activarEmpresa":
+                    Model.activarEmpresa(Integer.parseInt(request.getParameter("id")));
+                    out.print("Exito");
+                    break;
+
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -100,7 +135,3 @@ public class EmpresaService extends HttpServlet {
     }// </editor-fold>
 
 }
-
-
-
-              

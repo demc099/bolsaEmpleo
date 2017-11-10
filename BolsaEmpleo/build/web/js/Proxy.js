@@ -91,6 +91,121 @@ Proxy.insertarOferente = function () {
     }
 };
 
+
+Proxy.insertarEmpresa = function () {
+    if (validarEmpresa()) {
+        $.ajax({
+            url: 'EmpresaService',
+            data: {
+                accion: "insertarEmpresa",
+                nombre: $("#inputNombre").val(),
+                descripcion: $("#inputDescripcion").val(),
+                localizacion: $("#inputLocalizacion").val(),
+                telefono: $("#inputTelefono").val(),
+                correo: $("#inputCorreo").val(),
+                password: $("#inputPassword").val()
+
+            },
+            error: function () { //si existe un error en la respuesta del ajax
+                alert("Se genero un error, contacte al administrador (Error del ajax)");
+            },
+            success: function (data) { //si todo esta correcto en la respuesta del ajax, la respuesta queda en el data
+                if (data == "Exito") {
+                    alert("Se ha registrado Correctamente!! \n\n espere a la confirmacion de la activacion de su cuenta por parte del Administrador");
+                    limpiarForm();
+                } else
+                    alert("Ya existe un Registro con ese Nombre");
+
+            },
+            type: 'POST'
+        });
+    }
+};
+
+
+Proxy.eliminarEmpresa = function (ide) {
+        $.ajax({
+            url: 'EmpresaService',
+            data: {
+                accion: "eliminarEmpresa",
+                id: ide
+
+            },
+            error: function () { //si existe un error en la respuesta del ajax
+                alert("Se genero un error, contacte al administrador (Error del ajax)");
+            },
+            success: function (data) { //si todo esta correcto en la respuesta del ajax, la respuesta queda en el data
+                    alert("Se ha Eliminado Correctamente!!");     
+                    setTimeout(Proxy.consultarEmpresas, 100);
+
+            },
+            type: 'POST'
+        });
+};
+
+Proxy.activarEmpresa = function (ide) {
+        $.ajax({
+            url: 'EmpresaService',
+            data: {
+                accion: "activarEmpresa",
+                id: ide
+
+            },
+            error: function () { //si existe un error en la respuesta del ajax
+                alert("Se genero un error, contacte al administrador (Error del ajax)");
+            },
+            success: function (data) { //si todo esta correcto en la respuesta del ajax, la respuesta queda en el data
+                    alert("Se ha Activado Correctamente!!");     
+                    setTimeout(Proxy.consultarEmpresas, 100);
+
+            },
+            type: 'POST'
+        });
+};
+
+
+Proxy.eliminarOferente = function (ide) {
+        $.ajax({
+            url: 'OferenteService',
+            data: {
+                accion: "eliminarOferente",
+                id: ide
+
+            },
+            error: function () { //si existe un error en la respuesta del ajax
+                alert("Se genero un error, contacte al administrador (Error del ajax)");
+            },
+            success: function (data) { //si todo esta correcto en la respuesta del ajax, la respuesta queda en el data
+                    alert("Se ha Eliminado Correctamente!!");     
+                    setTimeout(Proxy.consultarOferentes, 100);
+
+            },
+            type: 'POST'
+        });
+};
+
+Proxy.activarOferente = function (ide) {
+        $.ajax({
+            url: 'OferenteService',
+            data: {
+                accion: "activarOferente",
+                id: ide
+
+            },
+            error: function () { //si existe un error en la respuesta del ajax
+                alert("Se genero un error, contacte al administrador (Error del ajax)");
+            },
+            success: function (data) { //si todo esta correcto en la respuesta del ajax, la respuesta queda en el data
+                    alert("Se ha Activado Correctamente!!");     
+                    setTimeout(Proxy.consultarOferentes, 100);
+
+            },
+            type: 'POST'
+        });
+};
+
+
+
 Proxy.verificarAdmin = function(u,p){
     return true;
 }

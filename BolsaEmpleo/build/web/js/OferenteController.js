@@ -276,6 +276,19 @@ function validarPass() {
 
     return validacion;
 }
+
+function eliminarOferente(id) {
+    if (confirm("Esta seguro de que desea eliminar este oferente?")) {
+        Proxy.eliminarOferente(id);
+    }
+}
+
+function activarOferente(id) {
+    if (confirm("Esta seguro de que desea activar este oferente?")) {
+        Proxy.activarOferente(id);
+    }
+}
+
   
   
   

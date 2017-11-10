@@ -62,23 +62,33 @@ public class OferenteService extends HttpServlet {
 
                 case "insertarOferente":
                     Oferente oferenteaux = Model.consultarOferenteById(Integer.parseInt(request.getParameter("id")));
-                    if (oferenteaux.getIdentificacion() != Integer.parseInt(request.getParameter("id"))){
-                      oferente = new Oferente();
-                      oferente.setIdentificacion(Integer.parseInt(request.getParameter("id")));
-                      oferente.setNombre(request.getParameter("nombre"));
-                      oferente.setApellido(request.getParameter("apellido"));
-                      oferente.setNacionalidad(request.getParameter("nacionalidad"));
-                      oferente.setCorreo(request.getParameter("correo"));
-                      oferente.setTelefono(request.getParameter("telefono"));
-                      oferente.setResidencia(request.getParameter("direccion"));
-                      oferente.setEstado("Inactivo");
-                      oferente.setPassword(request.getParameter("password"));
-                      Model.insertOferente(oferente);
-                      out.print("Exito");
-                    }
-                    else
+                    if (oferenteaux.getIdentificacion() != Integer.parseInt(request.getParameter("id"))) {
+                        oferente = new Oferente();
+                        oferente.setIdentificacion(Integer.parseInt(request.getParameter("id")));
+                        oferente.setNombre(request.getParameter("nombre"));
+                        oferente.setApellido(request.getParameter("apellido"));
+                        oferente.setNacionalidad(request.getParameter("nacionalidad"));
+                        oferente.setCorreo(request.getParameter("correo"));
+                        oferente.setTelefono(request.getParameter("telefono"));
+                        oferente.setResidencia(request.getParameter("direccion"));
+                        oferente.setEstado("Inactivo");
+                        oferente.setPassword(request.getParameter("password"));
+                        Model.insertOferente(oferente);
+                        out.print("Exito");
+                    } else {
                         out.print("Existe");
-                   
+                    }
+
+                    break;
+
+                case "eliminarOferente":
+                    Model.eliminarOferente(Integer.parseInt(request.getParameter("id")));
+                    out.print("Exito");
+                    break;
+
+                case "activarOferente":
+                    Model.activarOferente(Integer.parseInt(request.getParameter("id")));
+                    out.print("Exito");
                     break;
 
             }

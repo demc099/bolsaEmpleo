@@ -156,6 +156,55 @@ public class Model {
           bolsaEmpleo.executeUpdate(sql);
       }
       
+      public static Empresa consultarEmpresaByNombre(String nom){
+       Empresa emp;
+       emp = new Empresa();
+        try {
+            String sql="select * "+
+                    "from empresa  c where c.nombre = '%s'";
+            
+            sql=String.format(sql,nom);
+            ResultSet rs =  bolsaEmpleo.executeQuery(sql);
+            if (rs.next()) {
+            emp = toEmpresa(rs);
+            }
+        } catch (Exception ex) {
+        }
+       return  emp;
+   }
+      
+      public static void eliminarOferente(int id){
+          String sql =" DELETE FROM oferente WHERE identificacion = '%s'";
+          sql=String.format(sql,id);
+          bolsaEmpleo.executeUpdate(sql);
+      }
+      
+       public static void activarOferente(int id){
+          String sql ="UPDATE oferente SET estado = 'Activo' WHERE identificacion ='%s'";
+          sql=String.format(sql,id);
+          bolsaEmpleo.executeUpdate(sql);
+      }
+      
+      public static void insertEmpresa(Empresa emp){
+          String sql =" INSERT INTO empresa (nombre,descripcion,localizacion,correo,telefono,estado,password) VALUES ('%s','%s','%s','%s','%s','%s','%s')";
+          sql=String.format(sql,emp.getNombre(),emp.getDescripcion(),emp.getLocalizacion(),emp.getCorreo(),emp.getTelefono(),emp.getEstado(),emp.getPassword());
+          bolsaEmpleo.executeUpdate(sql);
+      }
+      
+      public static void eliminarEmpresa(int id){
+          String sql =" DELETE FROM empresa WHERE empresaid = '%s'";
+          sql=String.format(sql,id);
+          bolsaEmpleo.executeUpdate(sql);
+      }
+      
+       public static void activarEmpresa(int id){
+          String sql ="UPDATE empresa SET estado = 'Activo' WHERE empresaid ='%s'";
+          sql=String.format(sql,id);
+          bolsaEmpleo.executeUpdate(sql);
+      }
+      
+      
+      
      private static Puesto toPuesto(ResultSet rs){
         try {
             Puesto obj= new Puesto();
