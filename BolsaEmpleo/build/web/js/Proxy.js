@@ -90,3 +90,7 @@ Proxy.insertarOferente = function () {
         });
     }
 };
+
+Proxy.verificarAdmin = function(u,p){
+    return true;
+}

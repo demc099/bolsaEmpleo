@@ -11,6 +11,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/darkbox.js"></script>	
+        <script src="js/loginController.js"></script>
         <script src="js/modelo.js"></script>
     </head>
     <body>
@@ -61,42 +62,22 @@
                 <h1>Login</h1>
                 <br/>
                 <form role="form" onsubmit="return false;" id="formLogin">
-                    <div class="form-group" id="groupUsario">
-                        <label for="identificacion">Usuario:</label>
-                        <input type="text" class="form-control" id="usuario" autofocus="true" placeholder="Identificacion">
-                    </div>
-
-                    <div class="form-group" id="groupPassword">
-                        <label for="nombre">Contraseña:</label>
-                        <input type="password" class="form-control" id="password" placeholder="Contraseña" >
-                    </div>
                     <div class="form-group">
                          <label for="loguearcomo">Ingresar como:</label>
-                        <input type="radio" class="form-check-input" name="loguearcomo" value="empresa"> Empresa
-                        <input type="radio" class="form-check-input" name="loguearcomo" value="oferente"> Oferente
-                        <input type="radio" class="form-check-input" name="loguearcomo" value="admin"> Administrador
+                        <input type="radio" class="form-check-input" name="loguearcomo" id="emp" onclick="javascript:empresa()" > Empresa
+                        <input type="radio" class="form-check-input" name="loguearcomo" id="of" onclick="javascript:oferente()"> Oferente
+                        <input type="radio" class="form-check-input" name="loguearcomo" id="adm" onclick="javascript:admin()"> Administrador
                     </div>
-
-                    <div class="form-group">
-                        <input type="hidden" value="agregarPersona" id="personasAction"/>
-                        <button type="submit" class="btn btn-primary" id="enviar">Ingresar</button>
-                       
+                    <table id="formulario">
                         
-                    </div>
-
-                    <div class="form-group height25" >
-                        <div class="alert alert-success hiddenDiv" id="messajeResult">
-                            <strong id="mesajeResultNeg">Info!</strong> 
-                            <span id="mesajeResultText">Caja para poner mensajes.</span>
-                        </div>
-                    </div>
-
+                    </table>
+                    
                 </form>
                 
             </div>
           </div>
         
-        
-
     </body>
+    
+    
 </html>
